@@ -1,9 +1,13 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import { useTheme as useNextTheme } from 'next-themes';
+import { Switch, useTheme } from '@nextui-org/react';
 
 const Home: NextPage = () => {
+  const { setTheme } = useNextTheme();
+  const { isDark, type } = useTheme();
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +20,14 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <div>
+          The current theme is: {type}
+          <Switch
+            initialChecked={isDark}
+            onChange={(e) => setTheme(e.target ? 'dark' : 'light')}
+          />
+        </div>
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -66,7 +78,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
