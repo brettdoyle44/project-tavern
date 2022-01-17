@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import Link from 'next/link';
 import { HiClock } from 'react-icons/hi';
 import { FaEnvelope, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { HiPlus } from 'react-icons/hi';
@@ -13,10 +14,7 @@ import {
   styled,
   Avatar,
 } from '@nextui-org/react';
-
-const CampaignCard = styled(Card, {
-  color: '#fff',
-});
+import CampaignForm from '../components/CampaignForm';
 
 interface CampaignsProps {}
 
@@ -36,57 +34,59 @@ const Campaigns: FunctionComponent<CampaignsProps> = () => {
           </Button>
         </Grid>
         <Grid xs={12} md={4}>
-          <Card>
-            <Card.Body css={{ py: '$10' }}>
-              <Text css={{ py: '$5' }} weight="bold">
-                Sesame Partnership
-              </Text>
-              <Text color="$gray500">
-                Some quick example text to build on the card title and make up
-                the bulk of the cards content...
-              </Text>
-              <Text weight="bold" css={{ py: '$5' }}>
-                Channels
-              </Text>
-              <Grid.Container>
-                <Grid xs={12}>
-                  <Avatar.Group>
-                    <Avatar
-                      rounded
-                      color="gradient"
-                      icon={<FaEnvelope size={15} fill="#fff" />}
+          <Link href="/" passHref>
+            <Card hoverable clickable>
+              <Card.Body css={{ py: '$10' }}>
+                <Text css={{ py: '$5' }} weight="bold">
+                  Sesame Partnership
+                </Text>
+                <Text color="$gray500">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the cards content...
+                </Text>
+                <Text weight="bold" css={{ py: '$5' }}>
+                  Channels
+                </Text>
+                <Grid.Container>
+                  <Grid xs={12}>
+                    <Avatar.Group>
+                      <Avatar
+                        rounded
+                        color="gradient"
+                        icon={<FaEnvelope size={15} fill="#fff" />}
+                      />
+                      <Avatar
+                        rounded
+                        color="gradient"
+                        icon={<FaFacebookF size={15} fill="#fff" />}
+                      />
+                      <Avatar
+                        rounded
+                        color="gradient"
+                        icon={<FaTwitter size={15} fill="#fff" />}
+                      />
+                    </Avatar.Group>
+                  </Grid>
+                </Grid.Container>
+              </Card.Body>
+              <Card.Footer>
+                <Row justify="space-between">
+                  <Button auto color="warning" clickable={false} rounded flat>
+                    <HiClock
+                      style={{
+                        fontSize: '1.25em',
+                        marginRight: '5px',
+                      }}
                     />
-                    <Avatar
-                      rounded
-                      color="gradient"
-                      icon={<FaFacebookF size={15} fill="#fff" />}
-                    />
-                    <Avatar
-                      rounded
-                      color="gradient"
-                      icon={<FaTwitter size={15} fill="#fff" />}
-                    />
-                  </Avatar.Group>
-                </Grid>
-              </Grid.Container>
-            </Card.Body>
-            <Card.Footer>
-              <Row justify="space-between">
-                <Button auto color="warning" clickable={false} rounded flat>
-                  <HiClock
-                    style={{
-                      fontSize: '1.25em',
-                      marginRight: '5px',
-                    }}
-                  />
-                  Mar 20th
-                </Button>
-                <Button auto color="warning" clickable={false} rounded light>
-                  In Progress
-                </Button>
-              </Row>
-            </Card.Footer>
-          </Card>
+                    Mar 20th
+                  </Button>
+                  <Button auto color="warning" clickable={false} rounded light>
+                    In Progress
+                  </Button>
+                </Row>
+              </Card.Footer>
+            </Card>
+          </Link>
         </Grid>
       </Grid.Container>
       <Modal
@@ -99,16 +99,12 @@ const Campaigns: FunctionComponent<CampaignsProps> = () => {
       >
         <Modal.Header>
           <Text id="modal-title" size={18}>
-            Modal with a lot of content
+            Start your campaign
           </Text>
         </Modal.Header>
-        <Modal.Body>Hello</Modal.Body>
-        <Modal.Footer>
-          <Button flat auto color="error" onClick={() => setVisible(false)}>
-            Close
-          </Button>
-          <Button onClick={() => setVisible(false)}>Agree</Button>
-        </Modal.Footer>
+        <Modal.Body>
+          <CampaignForm />
+        </Modal.Body>
       </Modal>
     </>
   );
