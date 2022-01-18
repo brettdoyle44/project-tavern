@@ -3,6 +3,10 @@ import type { AppProps } from 'next/app';
 import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import Layout from '../components/Layout';
+import '@fullcalendar/common/main.css';
+import '@fullcalendar/daygrid/main.css';
+import '@fullcalendar/timegrid/main.css';
+import '../styles/calendar-override.css';
 
 const lightTheme = createTheme({
   type: 'light',

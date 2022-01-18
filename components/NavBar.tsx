@@ -67,7 +67,7 @@ const LinkWrapper = styled('li', {
   display: 'flex',
   alignItems: 'center',
   gap: '1em',
-  padding: '1em 0em 1em 1.25em',
+  padding: '1em 0em 0em 1.25em',
   borderTopLeftRadius: '14px',
   borderBottomLeftRadius: '14px',
   '&:hover': {
