@@ -15,6 +15,7 @@ import {
   Avatar,
 } from '@nextui-org/react';
 import CampaignForm from '../components/CampaignForm';
+import Header from '../components/Header';
 
 interface CampaignsProps {}
 
@@ -23,8 +24,9 @@ const Campaigns: FunctionComponent<CampaignsProps> = () => {
 
   return (
     <>
+      <Header title="Campaigns" />
       <Grid.Container gap={2}>
-        <Grid xs={12} alignItems="center" justify="space-between">
+        {/* <Grid xs={12} alignItems="center" justify="space-between">
           <Text h1 size={40} weight="bold">
             Campaigns
           </Text>
@@ -32,7 +34,7 @@ const Campaigns: FunctionComponent<CampaignsProps> = () => {
             <HiPlus style={{ color: '#fff', marginRight: '5px' }} /> New
             Campaign
           </Button>
-        </Grid>
+        </Grid> */}
         <Grid xs={12} md={4}>
           <Link href="/" passHref>
             <Card hoverable clickable>

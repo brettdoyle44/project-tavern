@@ -41,7 +41,7 @@ export const DropdownButton = styled(FaAngleDown, {
 
 export const Dropdown = styled('div', {
   position: 'absolute',
-  right: '12.10em',
+  right: '10em',
   marginTop: '0.5em',
   background: '#fff',
   alignItems: 'start',
@@ -85,7 +85,6 @@ const ProfileDropdown: FunctionComponent<Props> = () => {
       <ProfileContainer>
         <MainProfileArea onClick={toggleDropdown}>
           <ProfilePic src="photo.png" alt="profile picture" />
-          <ProfileName>Brett D.</ProfileName>
           <DropdownButton />
         </MainProfileArea>
         {isOpen && (

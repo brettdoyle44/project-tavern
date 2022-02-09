@@ -5,21 +5,23 @@ import Header from '../components/Header';
 
 const CoreLayout = styled('div', {
   display: 'grid',
-  grid: `[row1-start]'header' 50px [row1-end]
-          [row1-start]'main' 1fr [row1-end] / 
+  grid: `
+          [row2-start]'main' 1fr [row2-end] / 
           1fr
     `,
   '@md': {
-    grid: `[row1-start]'sidenav header' 100px [row1-end]
-    [row1-start]'sidenav main' 100% [row1-end] / 
-    240px 1fr
+    grid: `
+    [row2-start]'sidenav main' 100% [row2-end] / 
+    225px 1fr
   `,
   },
 });
 
 const MainArea = styled('div', {
   gridArea: 'main',
-  padding: '0.5em 2em',
+  '@md': {
+    padding: '0.5em 0.5em',
+  },
 });
 
 interface Props {
@@ -31,7 +33,7 @@ const Layout: FunctionComponent<Props> = ({ children }) => {
     <>
       <CoreLayout>
         <NavBar />
-        <Header />
+        {/* <Header /> */}
         <MainArea>{children}</MainArea>
       </CoreLayout>
     </>

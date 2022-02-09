@@ -14,14 +14,14 @@ const SideNav = styled('div', {
   gridArea: 'sidenav',
   display: 'flex',
   flexDirection: 'column',
-  margin: '0.5em 1.5em 0 1.5em',
+  margin: '0.15em 0em 0.5em 0em',
   height: '100%',
-  borderRadius: '24px',
-  width: '240px',
+  width: '225px',
   position: 'fixed',
   overflowY: 'auto',
-  zIndex: '2',
+  zIndex: '999',
   textAlign: 'left',
+  background: '#fff',
   transition: 'all 0.6s ease-in-out',
   boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08)',
   '@md': {
@@ -68,8 +68,8 @@ const LinkWrapper = styled('li', {
   alignItems: 'center',
   gap: '1em',
   padding: '1em 0em 0em 1.25em',
-  borderTopLeftRadius: '14px',
-  borderBottomLeftRadius: '14px',
+  borderRadius: '14px',
+  // backgroundColor: '$primary',
   '&:hover': {
     color: '$primary',
     cursor: 'pointer',
@@ -94,7 +94,7 @@ const NavBar: FunctionComponent<Props> = () => {
         <LogoContainer>
           <Text
             h1
-            size={45}
+            size={35}
             css={{
               textGradient: '45deg, $primary -20%, $secondary 50%',
             }}

@@ -1,31 +1,35 @@
 import { FunctionComponent } from 'react';
-import { styled, Input } from '@nextui-org/react';
+import { styled, Input, Grid, Text } from '@nextui-org/react';
 import Dropdown from './Dropdown';
 import { HiSearch } from 'react-icons/hi';
 
-const HeaderArea = styled('div', {
-  gridArea: 'header',
-  display: 'flex',
-  justifyContent: 'space-between',
-  margin: '1.5em 0',
-  padding: '0 3em',
-  alignItems: 'center',
-});
+interface Props {
+  title: string;
+}
 
-interface Props {}
-
-const Header: FunctionComponent<Props> = () => {
+const Header: FunctionComponent<Props> = ({ title }) => {
   return (
     <>
-      <HeaderArea>
-        <Input
-          placeholder="Search"
-          type="search"
-          width="30em"
-          contentLeft={<HiSearch />}
-        />
-        <Dropdown />
-      </HeaderArea>
+      <Grid.Container
+        css={{ gridArea: 'header', px: '$7', py: '$4' }}
+        justify="space-between"
+        alignItems="center"
+      >
+        <Grid xs={6}>
+          <Text h3 weight="bold">
+            {title}
+          </Text>
+        </Grid>
+        <Grid xs={6} direction="row" alignItems="center" justify="flex-end">
+          <Input
+            placeholder="Search"
+            type="search"
+            width="15em"
+            contentLeft={<HiSearch />}
+          />
+          <Dropdown />
+        </Grid>
+      </Grid.Container>
     </>
   );
 };
